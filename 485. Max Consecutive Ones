@@ -12,7 +12,6 @@ class Solution {
             t=k-i+1;//算连续长度
                 if(t>n){n=t;}
         }
-            
         }
        return n;
         }
