@@ -1,0 +1,20 @@
+class Solution {
+    public boolean isOneBitCharacter(int[] bits) {
+        int N=bits.length;
+        int k=0;
+        boolean result;
+        if((N>1)&&(bits[N-2]==1)){
+            if(N==2){
+                if(bits[0]==1)result=false;
+                else result=true;
+                
+            }
+            else{for(int i=N-2;i>0&&bits[i-1]==1;i--){
+               k++; 
+            }
+        if(k%2==0)result=false;
+        else result=true;}}
+        else result=true;
+        return result;
+    }
+}
