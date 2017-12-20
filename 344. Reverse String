@@ -1,0 +1,16 @@
+class Solution {
+    public String reverseString(String s) {
+        int N=s.length();
+       /* StringBuilder str=new StringBuilder("s");
+        int i=0;
+        str.setCharAt(i,"s.getChars(N-1-i)");
+    
+        return str;
+        */
+        char[] strarray=s.toCharArray();
+        for(int i=0;i<N;i++){
+            strarray[i]=s.charAt(N-1-i);
+        }
+        return String.valueOf(strarray);
+    }
+}
