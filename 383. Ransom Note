@@ -1,0 +1,47 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int len1=ransomNote.length();
+        int len2=magazine.length();
+        int count1=0;int j=0,count2=0,index=-1;
+        boolean flag=true;
+        if(len1>len2)flag=false;
+        else{
+        	OUT:
+           for(int i=0;i<len1;i++){
+            	count1=0;count2=0;index=-1;
+            	//算出在位置i处的字母一共出现了几次
+                    for(j=0;j<len1;j++){
+                    	if(ransomNote.charAt(i)==ransomNote.charAt(j))count1++;
+                    }
+                   //求出ransomNote在位置i处的字母 在magazine中出现了几次
+                    while(index<len2-1){
+                        index=magazine.indexOf(ransomNote.charAt(i),index+1);
+                    if(index==len2-1){
+                        count2++;
+                    	if(count1>count2) {
+                        	flag=false; 
+                        	break OUT;
+                        }
+                    	break;
+                    	}
+                    if(index!=-1){
+                        count2++;  
+                    }
+                    else{
+                        if(count1>count2) {
+                        	flag=false; 
+                        	break OUT;
+                        }
+                        break ;
+                    }
+                   
+                    
+                    }
+        
+                    
+      }
+
+           }
+        return flag;
+    }
+}
