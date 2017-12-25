@@ -1,0 +1,27 @@
+class Solution {
+    public boolean checkRecord(String s) {
+        int len=s.length();
+        int index=-1,count1=0;
+        boolean flag=true;
+        if(len>2){
+             for(int i=0;i<len-2;i++){
+            if(s.charAt(i)==s.charAt(i+1)&&s.charAt(i+1)==s.charAt(i+2)&&s.charAt(i)=='L'){
+                flag=false;
+            }
+        }
+        }
+        if(flag==true){
+            while(index<len-1){
+            index=s.indexOf("A",index+1);
+            if(index!=-1){
+                if(index==len-1){count1++;break;}
+                else count1++;
+                }
+            else break;
+        }
+        }
+        if(count1>1)flag=false;
+        return flag;
+        
+    }
+}
