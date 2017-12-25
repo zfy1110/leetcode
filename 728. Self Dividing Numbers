@@ -1,0 +1,40 @@
+class Solution {
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        ArrayList<Integer> mylist=new ArrayList<Integer>();//创建一个Integer类的ArrayList，名为mylist
+        int[] A=new int[5];
+        int j=0;
+        for(int i=left;i<=right;i++){
+            j=0;
+            int a=i/10000;
+            int b=(i-10000*a)/1000;
+            int c=(i-a*10000-b*1000)/100;
+            int d=(i-a*10000-b*1000-c*100)/10;
+            int e=(i-a*10000-b*1000-c*100-d*10);
+            A[0]=a;A[1]=b;A[2]=c;A[3]=d;A[4]=e;
+            while(j<5){  //如果数组中每一个不为零的数都能被i整除，那么用来计数的j最后的数值一定是5，后面即可对j值进行判断
+                if(A[j]!=0){
+                    if(i%A[j]==0)j++;
+                    else j=j+6;
+                }
+                else j++;
+               
+            }
+            if(j==5){
+            	OUT:
+            	 for(int t=0;t<5;t++){  //此处还需要判断，输入的数字i中是否有某一位上的数字是零，如果有某一位是零，那么可以将计数值j-1，来影响后面的技术结果
+                     for(int k=1;t+k<5;k++){
+                    if(A[t]!=0&&A[t+k]==0){j=-1;break OUT;}
+                }
+                    
+              }
+            if(j==5){
+               Integer output=i;
+                mylist.add(output);
+               
+            }    
+            }
+            
+        }
+        return mylist;
+    }
+}
